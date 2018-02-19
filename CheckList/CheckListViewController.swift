@@ -10,7 +10,7 @@ import UIKit
 
 class CheckListViewController: UITableViewController {
     
-    let itemArray = ["Study", "Code", "Swift"]
+    var itemArray = ["Study", "Code", "Swift"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +46,31 @@ class CheckListViewController: UITableViewController {
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //MARK: - Add new items
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add new items", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add new one", style: .default) { (action) in
+            self.itemArray.append(textField.text!)
+            
+            self.tableView.reloadData()
+            
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new item"
+            textField = alertTextField
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
