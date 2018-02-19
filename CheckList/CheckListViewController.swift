@@ -11,10 +11,16 @@ import UIKit
 class CheckListViewController: UITableViewController {
     
     var itemArray = ["Study", "Code", "Swift"]
+    
+    let defaults = UserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if let items = defaults.array(forKey: "CheckListArray") as? [String] {
+            itemArray = items
+        }
     }
     
     //MARK - Tableview Datasource Methods
@@ -58,6 +64,8 @@ class CheckListViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add new one", style: .default) { (action) in
             self.itemArray.append(textField.text!)
+            
+            self.defaults.set(self.itemArray, forKey: "CheckListArray")
             
             self.tableView.reloadData()
             
