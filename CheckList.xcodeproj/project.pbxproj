@@ -56,10 +56,10 @@
 		108B931E203A7B1300803DD0 /* CheckList */ = {
 			isa = PBXGroup;
 			children = (
+				108B931F203A7B1300803DD0 /* AppDelegate.swift */,
 				108B9334203BF16900803DD0 /* Controllers */,
 				108B9333203BF15D00803DD0 /* Data Model */,
 				108B9335203BF17F00803DD0 /* Views */,
-				108B931F203A7B1300803DD0 /* AppDelegate.swift */,
 				108B9326203A7B1300803DD0 /* Assets.xcassets */,
 				108B9328203A7B1300803DD0 /* LaunchScreen.storyboard */,
 				108B932B203A7B1300803DD0 /* Info.plist */,
